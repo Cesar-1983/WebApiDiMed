@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Test Api</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <div>
+        <h2>Todo los Tipos de Especialidades</h2>
+        <ul id="TipoEspecialidad" />
+    </div>
+
+
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+    <script>
+        var uri = 'api/TipoEspecialidad';
+        $(document).ready(function () {
+            // Send an AJAX request
+            $.getJSON(uri)
+                .done(function (data) {
+                    // On success, 'data' contains a list of products.
+                    $.each(data, function (key, item) {
+                        // Add a list item for the product.
+                        $('<li>', { text: formatItem(item) }).appendTo($('#TipoEspecialidad'));
+                    });
+                });
+        });
+
+        function formatItem(item) {
+            return item.TipoEspecialidadId + '-' + item.Desc_TipoEspecialidad;
+        }
+    </script>
+</body>
+</html>
