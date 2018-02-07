@@ -32,8 +32,9 @@ namespace WebApiDirMed.Controllers
 
         [HttpPost]
         [Route("BorrarTipoEspecialidad")]
-        public HttpResponseMessage BorrarTipoEspecialidad([FromBody]int Id) {
-            var a = _blTipoEspecialidad.BorrarEspecialidad(Id);
+        public HttpResponseMessage BorrarTipoEspecialidad([FromBody]TipoEspecialidadRequest model) {
+
+            var a = _blTipoEspecialidad.BorrarEspecialidad(model.IdTipoEspecialidad);
             var a1 = JsonConvert.SerializeObject(a);
             return new HttpResponseMessage { StatusCode = HttpStatusCode.OK, Content = new StringContent(a1) };
             //Ok(a);

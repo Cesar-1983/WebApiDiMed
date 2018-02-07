@@ -14,15 +14,15 @@
 
     <script src="Scripts/jquery-3.3.1.min.js"></script>
     <script>
-        var uri = 'api/TipoEspecialidad';
+        var uri = 'api/TipoEspecialidad/GetAllTipoEspecialidad';
         $(document).ready(function () {
             // Send an AJAX request
-            $.getJSON(uri)
+            $.post(uri)
                 .done(function (data) {
                     // On success, 'data' contains a list of products.
-                    $.each(data, function (key, item) {
+                    $.each(data, function (index, value) {
                         // Add a list item for the product.
-                        $('<li>', { text: formatItem(item) }).appendTo($('#TipoEspecialidad'));
+                        $('<li>', { text: formatItem(value) }).appendTo($('#TipoEspecialidad'));
                     });
                 });
         });
