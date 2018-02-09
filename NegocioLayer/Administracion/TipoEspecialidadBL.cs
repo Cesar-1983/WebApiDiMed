@@ -20,5 +20,13 @@ namespace NegocioLayer.Administracion
         {
             return dal.BorrarEspecialidad(pId);
         }
+        public ClaseBase.ErrorMesaje AgregarTipoEspecialidad(string TipoEspecialidad)
+        {
+            return dal.AgregarTipoEspecialidad(TipoEspecialidad);
+        }
+        public ClaseBase.ErrorMesaje ActualizarTipoEspecialidad(TipoEspecialidad TipoEspecialidad)
+        {
+            return dal.ActualizarTipoEspecialidad(TipoEspecialidad);
+        }
     }
 }
